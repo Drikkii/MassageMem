@@ -3,11 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Екатерина Мухина — массажист и мастер эстетической косметологии в Калининграде. Индивидуальные протоколы ухода, массаж лица и тела, запись на процедуры."
+    />
+    <meta name="robots" content="index, follow" />
     <title>Екатерина Мухина — Массажист и мастер эстетической косметологии</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
@@ -17,69 +22,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
   </head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <div class="header-top">
-          <a class="header-logo" href="#" aria-label="На главную">
-            <img src="img/Logo.png" alt="" />
-          </a>
-
-          <div class="brand brand--header">
-            <div class="brand-text">
-              <h1>Екатерина Мухина</h1>
-              <p>Массажист и мастер эстетической косметологии</p>
-            </div>
-          </div>
-
-          <div class="header-right">
-            <div class="header-contacts">
-              <a class="header-phone" href="tel:+79182859762">+7 918 285-97-62</a>
-              <div class="social-row">
-                <a
-                  class="social-link"
-                  href="https://t.me/+79182859762"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Написать в Telegram"
-                >
-                  <img src="img/icons/messenger-telegram.svg" alt="" width="28" height="28" />
-                </a>
-                <a
-                  class="social-link social-link--max"
-                  href="https://max.ru/u/f9LHodD0cOLo2NtgSTw4LF1wSlZf-BcsgWfnTfkEkZUt6sDx6EYAVwN54SU"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Написать в MAX"
-                  data-max-link
-                >
-                  <img src="img/icons/messenger-max.svg" alt="" width="28" height="28" />
-                </a>
-              </div>
-            </div>
-
-            <div class="header-actions">
-              <a class="btn" href="#">
-                <span>
-                  Записаться
-                  <small>на консультацию</small>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <nav class="nav">
-          <ul>
-            <li><a href="#">О мастере</a></li>
-            <li><a href="#">Тест: какой массаж мне подойдет</a></li>
-            <li><a href="#">Прайс</a></li>
-            <li><a href="#">Наставничество</a></li>
-            <li><a href="#">Сотрудничество с салонами</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+  <body data-page="home">
+    <div id="site-header"></div>
 
     <main>
       <section class="hero">
@@ -132,8 +76,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="hero-quote">Красота — это здоровье и гармония</div>
           </div>
         </div>
       </section>
@@ -143,105 +85,82 @@
           <h2 class="section-title">Мой опыт работы в лучших организациях страны</h2>
           <div class="experience-grid">
             <div class="experience-item">
-              <div class="experience-logo">С</div>
-              <p>
-                Сеть клиник эстетической медицины. Работа с VIP-клиентами и
-                индивидуальными протоколами.
-              </p>
-              <div class="experience-meta">Москва · 2019–2023</div>
+              <div class="experience-head">
+                <div class="experience-logo">Отель Hyatt Regency 5*</div>
+                <div class="experience-place">г. Сочи</div>
+              </div>
+              <ul class="experience-duties">
+                <li>SPA программы по телу La Sultane de Saba</li>
+                <li>Массаж</li>
+                <li>Уходовые программы по лицу Bioline и Anna Lotan</li>
+              </ul>
+              <div class="experience-year">2021 г.</div>
             </div>
             <div class="experience-item">
-              <div class="experience-logo small">La<br />Clinique</div>
-              <p>
-                Премиальный салон красоты. Массажные и косметологические
-                программы.
-              </p>
-              <div class="experience-meta">Москва · 2017–2019</div>
+              <div class="experience-head">
+                <div class="experience-logo">Отель Green Flow 4*</div>
+                <div class="experience-place">г. Сочи, Красная поляна</div>
+              </div>
+              <ul class="experience-duties">
+                <li>Координаторская деятельность</li>
+                <li>Обучение сотрудников</li>
+                <li>Проведение SPA ритуалов La Sultane de Saba</li>
+                <li>Ведение VIP гостей</li>
+              </ul>
+              <div class="experience-year">2022 г.</div>
             </div>
             <div class="experience-item">
-              <div class="experience-logo small">Beauty<br />Lab</div>
-              <p>
-                Косметологический центр. Комплексный уход и аппаратные
-                методики.
-              </p>
-              <div class="experience-meta">Санкт-Петербург · 2016–2017</div>
+              <div class="experience-head">
+                <div class="experience-logo">Фитнес клуб Xfit</div>
+                <div class="experience-place">г. Калининград</div>
+              </div>
+              <ul class="experience-duties">
+                <li>Управление коллективом 25 человек</li>
+                <li>Составление меню</li>
+                <li>Найм и обучение сотрудников</li>
+                <li>Создание технологических карт и внутренней документации</li>
+              </ul>
+              <div class="experience-year">2023 г.</div>
             </div>
             <div class="experience-item">
-              <div class="experience-logo small">Skin<br />Studio</div>
-              <p>
-                Студия ухода за кожей. Авторские процедуры и домашние
-                рекомендации.
-              </p>
-              <div class="experience-meta">Москва · 2018–2020</div>
+              <div class="experience-head">
+                <div class="experience-logo">Отель Маяковский 4*</div>
+                <div class="experience-place">г. Калининград, Куршская коса</div>
+              </div>
+              <ul class="experience-duties">
+                <li>Создание концепции SPA и бани</li>
+                <li>Разработка технологических карт</li>
+                <li>Найм и обучение сотрудников</li>
+                <li>Ведение VIP гостей</li>
+              </ul>
+              <div class="experience-year">2024 г.</div>
             </div>
             <div class="experience-item">
-              <div class="experience-logo small">Wellness<br />Spa</div>
-              <p>
-                SPA-центр. Программы релаксации, массаж и anti-age уход.
-              </p>
-              <div class="experience-meta">Москва · 2020–2022</div>
+              <div class="experience-head">
+                <div class="experience-logo">SPA Душа</div>
+                <div class="experience-place">г. Калининград</div>
+              </div>
+              <ul class="experience-duties">
+                <li>Открытие SPA и ведение до состояния автономности</li>
+                <li>Поиск и обучение команды</li>
+                <li>Составление регламентов</li>
+                <li>Поиск поставщиков</li>
+                <li>Внедрение CRM</li>
+                <li>Ведение VIP гостей</li>
+              </ul>
+              <div class="experience-year">2024 г.</div>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div>
-            <div class="brand">
-              <div class="brand-text">
-                <h1>Екатерина Мухина</h1>
-                <p>Массажист и мастер эстетической косметологии</p>
-              </div>
-            </div>
-            <div class="footer-cta">
-              <a class="btn" href="#">
-                <span>
-                  Записаться
-                  <small>на консультацию</small>
-                </span>
-              </a>
-            </div>
-          </div>
+    <div id="site-location"></div>
 
-          <div>
-            <h4>Контакты</h4>
-            <p>+7 (999) 123-45-67</p>
-            <p>@ekaterina_mukhina_cosmo</p>
-            <p>mukhina.cosmo@mail.ru</p>
-            <p>Москва</p>
-          </div>
+    <div id="site-footer"></div>
 
-          <div>
-            <h4>Навигация</h4>
-            <ul>
-              <li><a href="#">О мастере</a></li>
-              <li><a href="#">Тест</a></li>
-              <li><a href="#">Прайс</a></li>
-              <li><a href="#">Наставничество</a></li>
-              <li><a href="#">Сотрудничество</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4>Следите за мной</h4>
-            <div class="footer-social">
-              <span>IG</span>
-              <span>TG</span>
-              <span>WA</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <span>© 2024 Екатерина Мухина</span>
-          <a href="#">Политика конфиденциальности</a>
-        </div>
-      </div>
-    </footer>
-
+    <script src="js/site-config.js"></script>
+    <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
