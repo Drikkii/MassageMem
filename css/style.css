@@ -522,6 +522,9 @@ body[data-page="price"] .stub-content {
   flex: 0 1 480px;
   width: 100%;
   max-width: 480px;
+  position: relative;
+  overflow: visible;
+  padding-bottom: 30%;
 }
 
 .price-gallery {
@@ -535,7 +538,7 @@ body[data-page="price"] .stub-content {
 .price-banner-wrap {
   position: relative;
   width: 100%;
-  margin-bottom: 28%;
+  overflow: visible;
 }
 
 .price-banner {
@@ -551,12 +554,12 @@ body[data-page="price"] .stub-content {
 .price-decor {
   position: absolute;
   left: 50%;
-  bottom: -140px;
+  top: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 33.33%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -36%);
   pointer-events: none;
   z-index: 2;
 }
