@@ -150,7 +150,7 @@
     const heroContent = document.querySelector(".hero-content");
     const heroPhoto = document.querySelector(".hero-photo");
 
-    if (!heroContent || !heroPhoto || window.innerWidth <= 980) {
+    if (!heroContent || !heroPhoto || window.innerWidth <= 1100) {
       if (heroPhoto) heroPhoto.style.height = "";
       return;
     }

@@ -1,5 +1,5 @@
 (function () {
-  const MOBILE_BREAKPOINT = 980;
+  const MOBILE_BREAKPOINT = 1100;
   const THREE_URL = "https://unpkg.com/three@0.128.0/build/three.min.js";
   const SMOKE_URL = "js/candle-smoke.js";
 
