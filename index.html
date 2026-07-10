@@ -27,6 +27,7 @@
 
     <main>
       <section class="hero">
+        <div class="hero-candle-smoke-stage" id="hero-candle-smoke" aria-hidden="true"></div>
         <div class="container hero-stage">
           <div class="hero-photo-col">
             <img
@@ -36,43 +37,63 @@
             />
           </div>
 
-          <div class="hero-content">
-            <h2 class="hero-title">Я Екатерина Мухина</h2>
-            <div class="hero-subtitle">Массажист и мастер эстетической косметологии</div>
-            <div class="hero-divider"></div>
-            <p class="hero-lead">
-              Помогаю женщинам сохранять красоту и молодость с помощью
-              индивидуальных протоколов ухода, профессионального массажа и
-              современных эстетических практик.
-            </p>
+          <div class="hero-copy-col">
+            <div class="hero-content">
+              <h2 class="hero-title">Я Екатерина Мухина</h2>
+              <div class="hero-subtitle">Массажист и мастер эстетической косметологии</div>
+              <div class="hero-divider"></div>
+              <p class="hero-lead">
+                Помогаю женщинам сохранять красоту и молодость с помощью
+                индивидуальных протоколов ухода, профессионального массажа и
+                современных эстетических практик.
+              </p>
 
-            <div class="services">
-              <div class="service-item">
-                <div class="service-icon">✦</div>
-                <div>
-                  <h3>Эстетическая косметология</h3>
-                  <p>Индивидуальные протоколы ухода и восстановления кожи.</p>
+              <div class="services">
+                <div class="service-item">
+                  <div class="service-icon">✦</div>
+                  <div>
+                    <h3>Эстетическая косметология</h3>
+                    <p>Индивидуальные протоколы ухода и восстановления кожи.</p>
+                  </div>
+                </div>
+                <div class="service-item">
+                  <div class="service-icon">✦</div>
+                  <div>
+                    <h3>Массаж лица и тела</h3>
+                    <p>Авторские техники для расслабления, тонуса и сияния.</p>
+                  </div>
+                </div>
+                <div class="service-item">
+                  <div class="service-icon">✦</div>
+                  <div>
+                    <h3>Наставничество</h3>
+                    <p>Обучение и сопровождение специалистов индустрии красоты.</p>
+                  </div>
+                </div>
+                <div class="service-item">
+                  <div class="service-icon">✦</div>
+                  <div>
+                    <h3>Внедрение стандартов в салонах</h3>
+                    <p>Помощь салонам в выстраивании сервиса и процедур.</p>
+                  </div>
                 </div>
               </div>
-              <div class="service-item">
-                <div class="service-icon">✦</div>
-                <div>
-                  <h3>Массаж лица и тела</h3>
-                  <p>Авторские техники для расслабления, тонуса и сияния.</p>
-                </div>
-              </div>
-              <div class="service-item">
-                <div class="service-icon">✦</div>
-                <div>
-                  <h3>Наставничество</h3>
-                  <p>Обучение и сопровождение специалистов индустрии красоты.</p>
-                </div>
-              </div>
-              <div class="service-item">
-                <div class="service-icon">✦</div>
-                <div>
-                  <h3>Внедрение стандартов в салонах</h3>
-                  <p>Помощь салонам в выстраивании сервиса и процедур.</p>
+            </div>
+
+            <div class="hero-candle" aria-hidden="true">
+              <div class="hero-candle-holder">
+                <img
+                  class="hero-candle-image"
+                  src="img/свеча-прозрачныйфон.png"
+                  alt=""
+                  width="140"
+                  height="260"
+                  loading="lazy"
+                />
+                <div class="hero-candle-wick">
+                  <div class="hero-candle-fire">
+                    <span class="hero-candle-flame"></span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -82,7 +103,7 @@
 
       <section class="experience">
         <div class="container">
-          <h2 class="section-title">Мой опыт работы в лучших организациях страны</h2>
+          <h2 class="section-title">Мой опыт работы в престижных организациях</h2>
           <div class="experience-grid">
             <div class="experience-item">
               <div class="experience-head">
@@ -162,5 +183,6 @@
     <script src="js/site-config.js"></script>
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/candle-smoke-loader.js"></script>
   </body>
 </html>
