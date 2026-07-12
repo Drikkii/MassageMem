@@ -234,6 +234,71 @@
     frame.addEventListener("touchstart", focusFrame, { passive: true });
   }
 
+  function initPriceLightbox() {
+    if (document.body.dataset.page !== "price") return;
+
+    const lightbox = document.getElementById("price-lightbox");
+    const stage = document.getElementById("price-lightbox-stage");
+    const closeButton = lightbox?.querySelector(".price-lightbox-close");
+    const cards = document.querySelectorAll(".price-gallery .price-card");
+
+    if (!lightbox || !stage || !cards.length) return;
+
+    let lastFocusedElement = null;
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.hidden = true;
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("is-price-lightbox-open");
+      stage.innerHTML = "";
+
+      if (lastFocusedElement instanceof HTMLElement) {
+        lastFocusedElement.focus();
+      }
+    }
+
+    function openLightbox(card) {
+      lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : card;
+      const clone = card.cloneNode(true);
+      clone.removeAttribute("role");
+      clone.removeAttribute("tabindex");
+      clone.removeAttribute("aria-label");
+
+      stage.innerHTML = "";
+      stage.appendChild(clone);
+
+      lightbox.hidden = false;
+      lightbox.setAttribute("aria-hidden", "false");
+      lightbox.classList.add("is-open");
+      document.body.classList.add("is-price-lightbox-open");
+      closeButton?.focus();
+    }
+
+    cards.forEach((card) => {
+      card.addEventListener("click", () => openLightbox(card));
+
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox(card);
+        }
+      });
+    });
+
+    closeButton?.addEventListener("click", closeLightbox);
+
+    lightbox.querySelectorAll("[data-price-lightbox-close]").forEach((element) => {
+      element.addEventListener("click", closeLightbox);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+      }
+    });
+  }
+
   function init() {
     initContactLinks();
     initHeaderContactsLayout();
@@ -242,6 +307,7 @@
     initScrollReveal();
     initSmoothAnchors();
     initReviewsInteraction();
+    initPriceLightbox();
     onScroll();
   }
 
