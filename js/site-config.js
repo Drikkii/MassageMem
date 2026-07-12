@@ -16,6 +16,7 @@ window.SITE = {
     phoneDisplay: "+7 918 285-97-62",
     telegram: "https://t.me/+79182859762",
     max: "https://max.ru/u/f9LHodD0cOLo2NtgSTw4LF1wSlZf-BcsgWfnTfkEkZUt6sDx6EYAVwN54SU",
+    vk: "https://vk.com/ekaterina_mukhina_cosmo",
     email: "mukhina.cosmo@mail.ru",
     city: "Калининград",
     address: "Малоярославская ул., 6",

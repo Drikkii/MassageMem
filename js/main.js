@@ -4,6 +4,7 @@
       phone: "+79182859762",
       telegram: "https://t.me/+79182859762",
       max: "https://max.ru/u/f9LHodD0cOLo2NtgSTw4LF1wSlZf-BcsgWfnTfkEkZUt6sDx6EYAVwN54SU",
+      vk: "https://vk.com/ekaterina_mukhina_cosmo",
       email: "mukhina.cosmo@mail.ru",
     };
   }
@@ -27,6 +28,12 @@
     document.querySelectorAll("[data-max-link]").forEach((link) => {
       if (contacts.max) {
         link.href = contacts.max;
+      }
+    });
+
+    document.querySelectorAll("[data-vk-link]").forEach((link) => {
+      if (contacts.vk) {
+        link.href = contacts.vk;
       }
     });
 
@@ -299,6 +306,221 @@
     });
   }
 
+  function initPhotoLightbox() {
+    if (document.body.dataset.page !== "mentoring") return;
+
+    const triggers = document.querySelectorAll(".hero-photo-trigger");
+    const lightbox = document.getElementById("mentoring-photo-lightbox");
+    const closeButton = lightbox?.querySelector(".photo-lightbox-close");
+    const lightboxImage = lightbox?.querySelector(".photo-lightbox-image");
+
+    if (!triggers.length || !lightbox || !lightboxImage) return;
+
+    let lastFocusedElement = null;
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.hidden = true;
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("is-photo-lightbox-open");
+
+      if (lastFocusedElement instanceof HTMLElement) {
+        lastFocusedElement.focus();
+      }
+    }
+
+    function openLightbox(trigger) {
+      const image = trigger.querySelector("img");
+
+      if (!image) return;
+
+      lightboxImage.src = image.currentSrc || image.src;
+      lightboxImage.alt = image.alt;
+
+      lastFocusedElement =
+        document.activeElement instanceof HTMLElement ? document.activeElement : trigger;
+
+      lightbox.hidden = false;
+      lightbox.setAttribute("aria-hidden", "false");
+      lightbox.classList.add("is-open");
+      document.body.classList.add("is-photo-lightbox-open");
+      closeButton?.focus();
+    }
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => openLightbox(trigger));
+    });
+
+    closeButton?.addEventListener("click", closeLightbox);
+
+    lightbox.querySelectorAll("[data-photo-lightbox-close]").forEach((element) => {
+      element.addEventListener("click", closeLightbox);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+      }
+    });
+  }
+
+  function initMentoringApplicationModal() {
+    if (document.body.dataset.page !== "mentoring") return;
+
+    const openButton = document.getElementById("mentoring-application-open");
+    const modal = document.getElementById("mentoring-application-modal");
+    const thanksPopup = document.getElementById("mentoring-thanks-popup");
+    const form = document.getElementById("mentoring-application-form");
+    const error = document.getElementById("mentoring-application-error");
+    const closeButton = modal?.querySelector(".application-modal-close");
+
+    if (!openButton || !modal || !thanksPopup || !form || !error) return;
+
+    const phoneInput = form.querySelector('input[name="phone"]');
+    const PHONE_PREFIX = "+7";
+
+    let lastFocusedElement = null;
+    let thanksCloseTimer = null;
+
+    function clearThanksCloseTimer() {
+      if (thanksCloseTimer !== null) {
+        window.clearTimeout(thanksCloseTimer);
+        thanksCloseTimer = null;
+      }
+    }
+
+    function resetForm() {
+      form.reset();
+      if (phoneInput instanceof HTMLInputElement) {
+        phoneInput.value = "";
+      }
+    }
+
+    function getFullPhone() {
+      if (!(phoneInput instanceof HTMLInputElement)) return PHONE_PREFIX;
+      const digits = phoneInput.value.replace(/\D/g, "");
+      return digits ? `${PHONE_PREFIX}${digits}` : PHONE_PREFIX;
+    }
+
+    function bindPhoneInput() {
+      if (!(phoneInput instanceof HTMLInputElement)) return;
+
+      phoneInput.addEventListener("input", () => {
+        phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 10);
+      });
+    }
+
+    bindPhoneInput();
+
+    function closeThanksPopup() {
+      clearThanksCloseTimer();
+      thanksPopup.classList.remove("is-open");
+      thanksPopup.hidden = true;
+      thanksPopup.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("is-thanks-popup-open");
+
+      if (lastFocusedElement instanceof HTMLElement) {
+        lastFocusedElement.focus();
+      }
+    }
+
+    function openThanksPopup() {
+      clearThanksCloseTimer();
+      thanksPopup.hidden = false;
+      thanksPopup.setAttribute("aria-hidden", "false");
+      thanksPopup.classList.add("is-open");
+      document.body.classList.add("is-thanks-popup-open");
+
+      thanksCloseTimer = window.setTimeout(closeThanksPopup, 2000);
+    }
+
+    function closeModal() {
+      modal.classList.remove("is-open");
+      modal.hidden = true;
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("is-application-modal-open");
+      error.hidden = true;
+      error.textContent = "";
+      resetForm();
+    }
+
+    function openModal() {
+      clearThanksCloseTimer();
+      lastFocusedElement =
+        document.activeElement instanceof HTMLElement ? document.activeElement : openButton;
+
+      error.hidden = true;
+      error.textContent = "";
+      resetForm();
+
+      modal.hidden = false;
+      modal.setAttribute("aria-hidden", "false");
+      modal.classList.add("is-open");
+      document.body.classList.add("is-application-modal-open");
+
+      const nameInput = form.querySelector('input[name="name"]');
+      if (nameInput instanceof HTMLInputElement) {
+        nameInput.focus();
+      }
+    }
+
+    function normalizePhone(value) {
+      const digits = value.replace(/\D/g, "");
+      return digits ? `+7${digits.replace(/^7/, "")}` : "+7";
+    }
+
+    openButton.addEventListener("click", openModal);
+    closeButton?.addEventListener("click", closeModal);
+
+    modal.querySelectorAll("[data-application-close]").forEach((element) => {
+      element.addEventListener("click", closeModal);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("is-open")) {
+        closeModal();
+      }
+
+      if (event.key === "Escape" && thanksPopup.classList.contains("is-open")) {
+        closeThanksPopup();
+      }
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const name = String(formData.get("name") || "").trim();
+      const phone = normalizePhone(getFullPhone());
+      const comment = String(formData.get("comment") || "").trim();
+
+      if (!name) {
+        error.textContent = "Укажите имя.";
+        error.hidden = false;
+        return;
+      }
+
+      if (phone.length < 12) {
+        error.textContent = "Укажите корректный номер телефона.";
+        error.hidden = false;
+        return;
+      }
+
+      const contacts = getContacts();
+      const subject = encodeURIComponent("Заявка на персональное обучение");
+      const body = encodeURIComponent(
+        `Имя: ${name}\nТелефон: ${phone}${comment ? `\nКомментарий: ${comment}` : ""}\n\nЗаявка с сайта: Наставничество`
+      );
+
+      if (contacts.email) {
+        window.location.href = `mailto:${contacts.email}?subject=${subject}&body=${body}`;
+      }
+
+      closeModal();
+      openThanksPopup();
+    });
+  }
+
   function init() {
     initContactLinks();
     initHeaderContactsLayout();
@@ -308,6 +530,8 @@
     initSmoothAnchors();
     initReviewsInteraction();
     initPriceLightbox();
+    initPhotoLightbox();
+    initMentoringApplicationModal();
     onScroll();
   }
 
