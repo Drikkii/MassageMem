@@ -13,6 +13,7 @@
   --line: #e5dfbf;
   --white: #ffffff;
   --price-text: rgb(174, 66, 65);
+  --price-text-dark: rgb(148, 52, 51);
   --font-heading: "Garine", sans-serif;
 }
 
@@ -1542,6 +1543,10 @@ body.is-photo-lightbox-open {
   white-space: normal;
 }
 
+body[data-page="mentoring"] .container > .hero-stage:first-child .hero-title {
+  margin-bottom: 51px;
+}
+
 .hero--plain .hero-divider {
   background: var(--line);
 }
@@ -1593,6 +1598,88 @@ body.is-photo-lightbox-open {
   color: var(--text);
 }
 
+.mentoring-gallery {
+  width: 100%;
+  max-width: min(1080px, 100%);
+  margin: 0 auto;
+}
+
+.mentoring-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 28px 18px;
+  align-items: start;
+}
+
+.mentoring-gallery-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.mentoring-gallery-caption {
+  text-align: center;
+  padding: 0 2px;
+}
+
+.mentoring-gallery-title {
+  margin: 0 0 6px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.mentoring-gallery-text {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.mentoring-gallery-item {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  padding: 0;
+  border: 0;
+  background: var(--bg-card);
+  cursor: zoom-in;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.25s ease;
+}
+
+.mentoring-gallery-item.hero-photo-trigger {
+  display: block;
+}
+
+.mentoring-gallery-item:hover {
+  transform: translateY(-2px);
+}
+
+.mentoring-gallery-item:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 3px;
+}
+
+.mentoring-gallery-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 14px;
+  object-fit: cover;
+  object-position: center center;
+}
+
 .mentoring-social {
   width: 100%;
   padding: 8px 0 24px;
@@ -1608,7 +1695,7 @@ body.is-photo-lightbox-open {
   letter-spacing: 0.03em;
   line-height: 1.35;
   text-transform: uppercase;
-  color: #7a22bd;
+  color: var(--price-text);
 }
 
 .mentoring-social-buttons {
@@ -1692,7 +1779,7 @@ body.is-photo-lightbox-open {
   padding: 16px 36px;
   border: 0;
   border-radius: 999px;
-  background: #7a22bd;
+  background: var(--price-text);
   color: #ffffff;
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
@@ -1700,14 +1787,14 @@ body.is-photo-lightbox-open {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 12px 28px rgba(122, 34, 189, 0.28);
+  box-shadow: 0 12px 28px rgba(174, 66, 65, 0.28);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .mentoring-cta-btn:hover {
   transform: translateY(-2px);
-  background: #681da3;
-  box-shadow: 0 16px 32px rgba(122, 34, 189, 0.34);
+  background: var(--price-text-dark);
+  box-shadow: 0 16px 32px rgba(174, 66, 65, 0.34);
 }
 
 .application-modal {
@@ -1805,9 +1892,9 @@ body.is-photo-lightbox-open {
 }
 
 .application-input:focus {
-  outline: 2px solid rgba(122, 34, 189, 0.35);
+  outline: 2px solid rgba(174, 66, 65, 0.35);
   outline-offset: 1px;
-  border-color: rgba(122, 34, 189, 0.45);
+  border-color: rgba(174, 66, 65, 0.45);
 }
 
 .application-phone {
@@ -1821,9 +1908,9 @@ body.is-photo-lightbox-open {
 }
 
 .application-phone:focus-within {
-  outline: 2px solid rgba(122, 34, 189, 0.35);
+  outline: 2px solid rgba(174, 66, 65, 0.35);
   outline-offset: 1px;
-  border-color: rgba(122, 34, 189, 0.45);
+  border-color: rgba(174, 66, 65, 0.45);
 }
 
 .application-phone-prefix {
@@ -1866,7 +1953,7 @@ body.is-photo-lightbox-open {
 }
 
 .application-consent a {
-  color: #7a22bd;
+  color: var(--price-text);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -1881,7 +1968,7 @@ body.is-photo-lightbox-open {
   min-height: 52px;
   border: 0;
   border-radius: 999px;
-  background: #7a22bd;
+  background: var(--price-text);
   color: #ffffff;
   font: inherit;
   font-size: 12px;
@@ -1889,11 +1976,11 @@ body.is-photo-lightbox-open {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 10px 24px rgba(122, 34, 189, 0.24);
+  box-shadow: 0 10px 24px rgba(174, 66, 65, 0.24);
 }
 
 .application-submit:hover {
-  background: #681da3;
+  background: var(--price-text-dark);
 }
 
 .thanks-popup {
@@ -1968,6 +2055,43 @@ body.is-thanks-popup-open {
   .hero--plain .mentoring-note {
     text-align: center;
   }
+
+  .mentoring-gallery-photo {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .mentoring-gallery-item {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+  }
+
+  .mentoring-gallery-item.hero-photo-trigger {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .mentoring-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+    justify-items: stretch;
+  }
+
+  .mentoring-gallery-card {
+    align-items: center;
+    width: 100%;
+    max-width: none;
+  }
+
+  .mentoring-gallery-text {
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1982,6 +2106,34 @@ body.is-thanks-popup-open {
 
   .mentoring-note {
     font-size: 13px;
+  }
+
+  .mentoring-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 12px;
+    justify-items: stretch;
+  }
+
+  .mentoring-gallery-card {
+    align-items: center;
+    width: 100%;
+    max-width: none;
+  }
+
+  .mentoring-gallery-item,
+  .mentoring-gallery-item.hero-photo-trigger {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mentoring-gallery-photo {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+  }
+
+  .mentoring-gallery-title {
+    font-size: 14px;
   }
 }
 
@@ -2014,6 +2166,15 @@ body.is-thanks-popup-open {
     max-width: min(340px, 100%);
     margin: 0 auto;
     object-position: center bottom;
+  }
+
+  .hero-photo.mentoring-gallery-photo {
+    width: 100%;
+    height: 100% !important;
+    max-width: none;
+    margin: 0;
+    object-fit: cover;
+    object-position: center center;
   }
 
   .hero-photo.hero-photo--compact {

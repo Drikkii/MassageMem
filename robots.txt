@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://drikkii.github.io/MassageMem/sitemap.xml
+Sitemap: https://spaexpert-em.ru/sitemap.xml

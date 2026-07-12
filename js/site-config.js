@@ -2,7 +2,7 @@ window.SITE = {
   name: "Екатерина Мухина",
   tagline: "Массажист и мастер эстетической косметологии",
   year: 2026,
-  url: "https://drikkii.github.io/MassageMem",
+  url: "https://spaexpert-em.ru",
   github: "https://github.com/Drikkii/MassageMem",
   developer: "Drikki",
   locale: "ru_RU",
