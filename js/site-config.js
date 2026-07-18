@@ -3,25 +3,63 @@ window.SITE = {
   tagline: "Массажист и мастер эстетической косметологии",
   year: 2026,
   url: "https://spaexpert-em.ru",
+  assetsVersion: "15",
   github: "https://github.com/Drikkii/MassageMem",
   developer: "Drikki",
   locale: "ru_RU",
-  defaultImage: "img/Mem-Photoroom2-Photoroom2-Photoroom.png",
+  defaultImage: "img/Mem-Photoroom2-Photoroom2-Photoroom.webp",
+  favicon: {
+    ico: "favicon.ico",
+    png32: "favicon/favicon-32x32.png",
+    png16: "favicon/favicon-16x16.png",
+    apple: "favicon/apple-touch-icon.png",
+    manifest: "site.webmanifest",
+  },
+  seo: {
+    brandNames: [
+      "SPA Expert",
+      "СПА Эксперт",
+      "Эксперт СПА",
+      "SPA Expert EM",
+      "spaexpert-em.ru",
+    ],
+    brandKeywords:
+      "spa expert, spa expert калининград, spa expert em, spaexpert, spaexpert em, spaexpert-em, spaexpert-em.ru, спа эксперт, эксперт спа, спа эксперт калининград, эксперт спа калининград, екатерина мухина spa expert",
+    thaiKeywords:
+      "тайский массаж, тайский массаж калининград, thai massage, thai massage kaliningrad, тайский масляный массаж, тайский масляный массаж калининград, традиционный тайский массаж, тайский spa массаж, тайский массаж тела, тайский массаж цена, тайский массаж записаться, лучший тайский массаж калининград, тайский массаж кабинет, thai oil massage",
+    keywordsBase:
+      "массаж, массаж калининград, лучший массаж калининград, массажист калининград, профессиональный массаж, массаж лица калининград, массаж тела калининград, тайский массаж калининград, тайский масляный массаж, расслабляющий массаж калининград, медовый массаж, лимфодренажный массаж, массажный кабинет калининград, записаться на массаж калининград, spa массаж, thai massage, массаж рядом со мной, массаж калининград цены, spa expert, спа эксперт, эксперт спа, spaexpert-em.ru, Екатерина Мухина",
+    geo: {
+      latitude: 54.720559,
+      longitude: 20.545701,
+    },
+    yandexVerification: "293bcd7b06fd60cb",
+    googleVerification: "DTBmoWyh4-bvgr2hEhJTUzlg576UmuLoP0IRhTFxoVg",
+    navigation: [
+      { key: "about", name: "О мастере" },
+      { key: "price", name: "Прайс на массаж" },
+      { key: "test", name: "Какой массаж выбрать" },
+      { key: "contacts", name: "Контакты и адрес" },
+      { key: "mentoring", name: "Наставничество" },
+    ],
+  },
   defaultDescription:
-    "Екатерина Мухина — массажист и мастер эстетической косметологии в Калининграде. Профессиональный массаж лица и тела, эстетический уход, наставничество и сотрудничество с салонами.",
+    "Кабинет массажиста. Все классические техники массажа, эстетическая косметология. Более 8 лет опыта. Эксперт SPA индустрии.",
   defaultKeywords:
-    "массаж Калининград, массажист Калининград, эстетическая косметология, массаж лица, массаж тела, Екатерина Мухина",
+    "массаж, массаж калининград, лучший массаж калининград, массажист калининград, профессиональный массаж, массаж лица калининград, массаж тела калининград, массажный кабинет калининград, записаться на массаж, spa массаж калининград, Екатерина Мухина",
   contacts: {
     phone: "+79182859762",
     phoneDisplay: "+7 918 285-97-62",
     telegram: "https://t.me/+79182859762",
     max: "https://max.ru/u/f9LHodD0cOLo2NtgSTw4LF1wSlZf-BcsgWfnTfkEkZUt6sDx6EYAVwN54SU",
     vk: "https://vk.com/ekaterina_mukhina_cosmo",
-    email: "mukhina.cosmo@mail.ru",
+    email: "ekaterina_spa_massage@mail.ru",
     city: "Калининград",
     address: "Малоярославская ул., 6",
     addressFull: "г. Калининград, Малоярославская ул., 6",
   },
+  mailFrom: "noreply@spaexpert-em.ru",
+  mailFromName: "Сайт Екатерины Мухиной",
   yandex: {
     profileUrl: "https://yandex.ru/maps/org/massazhny_kabinet/178427435576/",
     mapEmbedUrl:
@@ -29,62 +67,89 @@ window.SITE = {
     reviewsEmbedUrl: "https://yandex.ru/maps-reviews-widget/178427435576?comments",
     orgName: "Массажный кабинет",
   },
+  booking: {
+    url: "https://dikidi.ru/#widget=213478",
+    scriptUrl:
+      "https://dikidi.ru/assets/js/widget_record/widget2.min.js?v=1773811740",
+  },
+  forms: {
+    leadUrl: "/api/lead.php",
+    email: "ekaterina_spa_massage@mail.ru",
+  },
+  analytics: {
+    // Укажите номера счётчиков — без них скрипты не загружаются.
+    yandexMetrikaId: 110819286,
+    googleAnalyticsId: "G-5PFR414460",
+    yandexMetrika: {
+      ssr: true,
+      webvisor: true,
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      ecommerce: "dataLayer",
+    },
+  },
   routes: {
     home: {
       path: "index.html",
-      title: "Екатерина Мухина — Массажист и мастер эстетической косметологии",
+      title: "Массаж в Калининграде — эксперт в массаже",
       description:
-        "Екатерина Мухина — массажист и мастер эстетической косметологии в Калининграде. Индивидуальные протоколы ухода, массаж лица и тела, запись на процедуры.",
+        "Кабинет массажиста. Все классические техники массажа, эстетическая косметология. Более 8 лет опыта. Эксперт SPA индустрии.",
       keywords:
-        "массаж Калининград, массажист, эстетическая косметология, массаж лица, массаж тела, Екатерина Мухина",
+        "массаж, массаж калининград, лучший массаж калининград, тайский массаж калининград, тайский масляный массаж, thai massage, массажист калининград, профессиональный массаж, массаж лица, массаж тела, расслабляющий массаж, медовый массаж, лимфодренажный массаж, массажный кабинет, записаться на массаж, spa массаж, Екатерина Мухина",
       changefreq: "weekly",
       priority: "1.0",
       inSitemap: true,
     },
     about: {
       path: "index.html",
-      title: "О мастере — Екатерина Мухина",
+      title: "О массажисте в Калининграде — Екатерина Мухина",
       description:
-        "О мастере Екатерине Мухиной: опыт в эстетической косметологии и массаже, индивидуальный подход и профессиональный уход в Калининграде.",
-      keywords: "о мастере, массажист Калининград, эстетическая косметология, Екатерина Мухина",
+        "Екатерина Мухина — массажист и мастер эстетической косметологии в Калининграде. Опыт работы в SPA и отелях, индивидуальный подход к массажу лица и тела.",
+      keywords:
+        "массажист калининград, о мастере массажа, профессиональный массаж, Екатерина Мухина, лучший массажист, spa expert",
       inSitemap: false,
     },
     test: {
       path: "test.html",
-      title: "Тест: какой массаж мне подойдет — Екатерина Мухина",
+      title: "Какой массаж выбрать — тест | Массаж Калининград",
       description:
-        "Пройдите тест и узнайте, какой вид массажа вам подойдет. Екатерина Мухина — массажист и мастер эстетической косметологии в Калининграде.",
-      keywords: "тест массаж, какой массаж подойдет, массаж Калининград",
+        "Бесплатный тест: какой массаж вам подойдёт в Калининграде. Подбор техники массажа лица и тела от Екатерины Мухиной — профессионального массажиста.",
+      keywords:
+        "какой массаж выбрать, тест массаж, массаж калининград, массаж лица, массаж тела, подбор массажа",
       changefreq: "monthly",
       priority: "0.7",
       inSitemap: true,
     },
     price: {
       path: "price.html",
-      title: "Прайс — Екатерина Мухина",
+      title: "Прайс на массаж в Калининграде — цены | Екатерина Мухина",
       description:
-        "Прайс на массаж и эстетические процедуры у Екатерины Мухиной в Калининграде. Актуальные цены и запись на сеанс.",
-      keywords: "прайс массаж, цены массаж Калининград, стоимость массажа",
+        "Цены на массаж в Калининграде: тайский масляный массаж, массаж тела и лица, расслабляющий, медовый, лимфодренажный и другие процедуры. Актуальный прайс и онлайн-запись к массажисту Екатерине Мухиной.",
+      keywords:
+        "прайс массаж калининград, цены на массаж, тайский массаж калининград, тайский масляный массаж, thai massage, стоимость тайского массажа, массаж калининград цены, массаж лица цена, массаж тела цена, записаться на массаж",
       changefreq: "weekly",
-      priority: "0.8",
+      priority: "0.9",
       inSitemap: true,
     },
     mentoring: {
       path: "mentoring.html",
-      title: "Наставничество — Екатерина Мухина",
+      title: "Наставничество для массажистов — Екатерина Мухина",
       description:
-        "Наставничество для специалистов индустрии красоты от Екатерины Мухиной: обучение, сопровождение и профессиональный рост.",
-      keywords: "наставничество косметология, обучение массажу, менторство beauty",
+        "Наставничество и обучение для массажистов и мастеров beauty: техники массажа, сервис, стандарты SPA. Екатерина Мухина, Калининград.",
+      keywords:
+        "наставничество массаж, обучение массажу, курсы массажиста, ментор beauty, Екатерина Мухина",
       changefreq: "monthly",
       priority: "0.6",
       inSitemap: true,
     },
     salons: {
       path: "salons.html",
-      title: "Сотрудничество с салонами — Екатерина Мухина",
+      title: "Сотрудничество с салонами — массаж и SPA | Екатерина Мухина",
       description:
-        "Сотрудничество с салонами красоты: внедрение стандартов сервиса, обучение команды и авторские протоколы от Екатерины Мухиной.",
-      keywords: "сотрудничество салон красоты, стандарты сервиса, обучение салон",
+        "Сотрудничество салонов красоты и SPA с массажистом Екатериной Мухиной: обучение команды, стандарты сервиса, авторские протоколы массажа.",
+      keywords:
+        "сотрудничество салон красоты, обучение массажу salon, spa стандарты, массаж для салона",
       changefreq: "monthly",
       priority: "0.6",
       inSitemap: true,
@@ -93,23 +158,253 @@ window.SITE = {
       path: "privacy.html",
       title: "Политика конфиденциальности — Екатерина Мухина",
       description:
-        "Политика конфиденциальности сайта Екатерины Мухиной: порядок обработки и защиты персональных данных.",
-      keywords: "политика конфиденциальности, персональные данные",
+        "Политика конфиденциальности сайта массажного кабинета Екатерины Мухиной в Калининграде: обработка и защита персональных данных.",
+      keywords: "политика конфиденциальности, персональные данные, массаж калининград",
       changefreq: "yearly",
       priority: "0.3",
       inSitemap: true,
     },
     contacts: {
       path: "contacts.html",
-      title: "Контакты — Екатерина Мухина",
+      title: "Массажный кабинет Калининград — адрес и контакты",
       description:
-        "Контакты Екатерины Мухиной в Калининграде: адрес массажного кабинета, телефон, электронная почта и карта проезда.",
-      keywords: "контакты массажист Калининград, адрес массажный кабинет, Екатерина Мухина",
+        "Массажный кабинет в Калининграде: адрес Малоярославская ул., 6, телефон, запись на массаж онлайн. Екатерина Мухина — профессиональный массажист.",
+      keywords:
+        "массажный кабинет калининград, адрес массажа, массаж калининград контакты, записаться на массаж, массажист калининград телефон, Екатерина Мухина",
       changefreq: "monthly",
-      priority: "0.8",
+      priority: "0.9",
       inSitemap: true,
     },
   },
+};
+
+window.SITE.getKeywords = function getKeywords(routeKey) {
+  const route = routeKey ? window.SITE.routes[routeKey] : null;
+  const groups = [
+    route?.keywords || window.SITE.defaultKeywords,
+    window.SITE.seo?.thaiKeywords,
+    window.SITE.seo?.brandKeywords,
+  ].filter(Boolean);
+
+  const seen = new Set();
+  const merged = [];
+
+  groups.forEach((group) => {
+    group
+      .split(",")
+      .map((keyword) => keyword.trim())
+      .filter(Boolean)
+      .forEach((keyword) => {
+        const key = keyword.toLowerCase();
+        if (seen.has(key)) return;
+        seen.add(key);
+        merged.push(keyword);
+      });
+  });
+
+  return merged.join(", ");
+};
+
+window.SITE.getNavigationItems = function getNavigationItems() {
+  return window.SITE.seo?.navigation || [];
+};
+
+window.SITE.buildBusinessSchema = function buildBusinessSchema() {
+  const geo = window.SITE.seo?.geo;
+  const business = {
+    "@type": ["LocalBusiness", "HealthAndBeautyBusiness"],
+    "@id": `${window.SITE.url}/#business`,
+    name: window.SITE.yandex?.orgName || "Массажный кабинет",
+    alternateName: [window.SITE.name, ...(window.SITE.seo?.brandNames || [])],
+    description: window.SITE.defaultDescription,
+    url: `${window.SITE.url}/`,
+    image: `${window.SITE.url}/${window.SITE.defaultImage}`,
+    telephone: window.SITE.contacts.phone,
+    email: window.SITE.contacts.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: window.SITE.contacts.address,
+      addressLocality: window.SITE.contacts.city,
+      addressRegion: "Калининградская область",
+      addressCountry: "RU",
+    },
+    areaServed: { "@type": "City", name: window.SITE.contacts.city },
+    priceRange: "₽₽",
+    knowsAbout: [
+      "Массаж",
+      "Массаж в Калининграде",
+      "SPA Expert",
+      "СПА Эксперт",
+      "Массаж лица",
+      "Массаж тела",
+      "Тайский массаж",
+      "Эстетическая косметология",
+    ],
+    sameAs: [
+      window.SITE.contacts.telegram,
+      window.SITE.contacts.vk,
+      window.SITE.yandex?.profileUrl,
+    ].filter(Boolean),
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: window.SITE.contacts.phone,
+      contactType: "reservations",
+      areaServed: window.SITE.contacts.city,
+      availableLanguage: ["ru", "Russian"],
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Массаж и SPA-процедуры в Калининграде",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Массаж лица и тела",
+            url: `${window.SITE.url}/`,
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Прайс на массаж",
+            url: window.SITE.getAbsoluteUrl("price"),
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Тайский масляный массаж",
+            url: window.SITE.getAbsoluteUrl("price"),
+          },
+        },
+      ],
+    },
+  };
+
+  if (geo) {
+    business.geo = {
+      "@type": "GeoCoordinates",
+      latitude: geo.latitude,
+      longitude: geo.longitude,
+    };
+  }
+
+  if (window.SITE.yandex?.profileUrl) {
+    business.hasMap = window.SITE.yandex.profileUrl;
+  }
+
+  return business;
+};
+
+window.SITE.buildPageSchemaGraph = function buildPageSchemaGraph(
+  pageKey,
+  pageTitle,
+  pageDescription,
+) {
+  const route = window.SITE.routes[pageKey] || window.SITE.routes.home;
+  const title = pageTitle || route.title;
+  const description = pageDescription || route.description || window.SITE.defaultDescription;
+  const canonicalUrl = window.SITE.getAbsoluteUrl(pageKey);
+  const pageName = title.split("—")[0].trim();
+
+  const graph = [
+    {
+      "@type": "WebSite",
+      "@id": `${window.SITE.url}/#website`,
+      url: `${window.SITE.url}/`,
+      name: `${window.SITE.name} — SPA Expert, массаж в Калининграде`,
+      description: window.SITE.defaultDescription,
+      inLanguage: "ru-RU",
+      publisher: { "@id": `${window.SITE.url}/#business` },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonicalUrl}#webpage`,
+      url: canonicalUrl,
+      name: title,
+      description,
+      isPartOf: { "@id": `${window.SITE.url}/#website` },
+      about: { "@id": `${window.SITE.url}/#business` },
+      inLanguage: "ru-RU",
+    },
+    window.SITE.buildBusinessSchema(),
+    {
+      "@type": "Person",
+      "@id": `${window.SITE.url}/#person`,
+      name: window.SITE.name,
+      jobTitle: window.SITE.tagline,
+      description: window.SITE.defaultDescription,
+      url: `${window.SITE.url}/`,
+      image: `${window.SITE.url}/${window.SITE.defaultImage}`,
+      telephone: window.SITE.contacts.phone,
+      email: window.SITE.contacts.email,
+      worksFor: { "@id": `${window.SITE.url}/#business` },
+      sameAs: [
+        window.SITE.contacts.telegram,
+        window.SITE.contacts.vk,
+        window.SITE.yandex?.profileUrl,
+      ].filter(Boolean),
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${window.SITE.url}/#sitenav`,
+      name: "Разделы сайта",
+      itemListElement: window.SITE.getNavigationItems().map((item, index) => ({
+        "@type": "SiteNavigationElement",
+        position: index + 1,
+        name: item.name,
+        url: window.SITE.getAbsoluteUrl(item.key),
+      })),
+    },
+  ];
+
+  if (pageKey !== "home") {
+    graph.push({
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Главная",
+          item: `${window.SITE.url}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: pageName,
+          item: canonicalUrl,
+        },
+      ],
+    });
+  }
+
+  if (pageKey === "home") {
+    graph.push({
+      "@type": "AboutPage",
+      "@id": `${canonicalUrl}#aboutpage`,
+      url: canonicalUrl,
+      name: title,
+      description,
+      mainEntity: { "@id": `${window.SITE.url}/#person` },
+    });
+  }
+
+  if (pageKey === "contacts") {
+    graph.push({
+      "@type": "ContactPage",
+      "@id": `${canonicalUrl}#contactpage`,
+      url: canonicalUrl,
+      name: title,
+      description,
+      mainEntity: { "@id": `${window.SITE.url}/#business` },
+    });
+  }
+
+  return graph;
 };
 
 window.SITE.getBasePath = function getBasePath() {
@@ -132,6 +427,7 @@ window.SITE.pageUrl = function pageUrl(routeKey) {
   const rootPath = base.endsWith("/") ? base : `${base}/`;
 
   if (route.path.startsWith("http")) return route.path;
+  if (routeKey === "home" || routeKey === "about" || route.path === "index.html") return rootPath;
   return `${rootPath}${route.path}`;
 };
 
@@ -140,7 +436,7 @@ window.SITE.getAbsoluteUrl = function getAbsoluteUrl(routeKey) {
   const route = window.SITE.routes[routeKey];
 
   if (!route) return `${base}/`;
-  if (routeKey === "home" || route.path === "index.html") return `${base}/`;
+  if (routeKey === "home" || routeKey === "about" || route.path === "index.html") return `${base}/`;
   return `${base}/${route.path}`;
 };
 

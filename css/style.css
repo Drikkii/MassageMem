@@ -358,6 +358,10 @@ h4,
   color: var(--header-text);
 }
 
+.nav-mobile-booking {
+  display: none;
+}
+
 /* Legal page */
 .legal-page {
   padding: 56px 0 72px;
@@ -498,6 +502,7 @@ h4,
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-bottom: 36px;
 }
 
 /* Stub page */
@@ -520,11 +525,48 @@ body[data-page="price"] .stub-content {
   max-width: min(1040px, 100%);
 }
 
+.price-mobile-booking {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .price-mobile-booking {
+    display: flex;
+    justify-content: center;
+    padding: 16px 16px 24px;
+  }
+
+  .btn--price-booking {
+    width: min(100%, 320px);
+    padding: 14px 24px;
+    text-align: center;
+  }
+
+  .btn--price-booking span {
+    text-align: center;
+  }
+
+  body[data-page="price"] .price-card {
+    cursor: default;
+  }
+
+  body[data-page="price"] .price-card:hover {
+    z-index: 1;
+    transform: none;
+    filter: none;
+  }
+
+  body[data-page="price"] .price-card:focus-visible {
+    outline: none;
+  }
+}
+
 .price-card {
   flex: 0 1 480px;
   width: 100%;
   max-width: 480px;
   position: relative;
+  z-index: 1;
   overflow: visible;
   padding-bottom: 12%;
   cursor: pointer;
@@ -532,6 +574,7 @@ body[data-page="price"] .stub-content {
 }
 
 .price-card:hover {
+  z-index: 3;
   transform: scale(1.02);
   filter: drop-shadow(0 8px 20px rgba(56, 29, 3, 0.18));
 }
@@ -710,6 +753,108 @@ body[data-page="price"] .stub-content {
   text-align: center;
 }
 
+.price-banner-wrap--contraindications {
+  overflow: visible;
+}
+
+.price-gallery .price-card:first-child {
+  z-index: 2;
+}
+
+.price-contraindications-corner {
+  position: absolute;
+  top: auto;
+  bottom: 22%;
+  right: 19%;
+  left: 19%;
+  z-index: 2;
+  margin: 0;
+  padding-right: 3px;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-size: 8.2px;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-align: right;
+  color: rgb(174, 66, 65);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  pointer-events: none;
+}
+
+.price-banner-wrap--contraindications .price-contraindications {
+  position: absolute;
+  top: 16%;
+  right: 17%;
+  bottom: 24%;
+  left: 18%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: rgb(174, 66, 65);
+  text-align: left;
+}
+
+.price-contraindications-head {
+  flex-shrink: 0;
+  margin-bottom: 2px;
+  text-align: center;
+  width: 100%;
+}
+
+.price-banner-wrap--contraindications .price-contraindications-head .price-menu-title {
+  font-size: 21.1px;
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+}
+
+.price-contraindications-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 2px 0 2%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.price-contraindications-list::-webkit-scrollbar {
+  display: none;
+}
+
+.price-contraindications-item {
+  margin: 0;
+  flex-shrink: 0;
+  min-height: 0;
+}
+
+.price-contraindications-item-title {
+  margin: 0 0 1px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11.2px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  color: rgb(174, 66, 65);
+}
+
+.price-contraindications-item-text {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 9.8px;
+  font-weight: 400;
+  line-height: 1.32;
+  letter-spacing: 0.01em;
+  color: rgba(174, 66, 65, 0.92);
+  overflow-wrap: anywhere;
+}
+
 .price-decor {
   position: absolute;
   left: 50%;
@@ -720,7 +865,7 @@ body[data-page="price"] .stub-content {
   width: 33.33%;
   transform: translate(-50%, -36%);
   pointer-events: none;
-  z-index: 2;
+  z-index: 20;
 }
 
 .price-pimple {
@@ -728,7 +873,7 @@ body[data-page="price"] .stub-content {
   width: 27.5%;
   height: auto;
   position: relative;
-  z-index: 2;
+  z-index: 22;
 }
 
 .price-brushes {
@@ -737,7 +882,7 @@ body[data-page="price"] .stub-content {
   height: auto;
   margin-top: -8%;
   position: relative;
-  z-index: 1;
+  z-index: 21;
   transform-origin: top center;
   animation: price-brushes-sway 3.2s ease-in-out infinite;
 }
@@ -852,6 +997,45 @@ body[data-page="price"] .stub-content {
   left: 17%;
 }
 
+.price-lightbox .price-banner-wrap--contraindications .price-menu-title {
+  font-size: 21.1px;
+  letter-spacing: 0.06em;
+}
+
+.price-lightbox .price-contraindications-item-title {
+  font-size: 11.2px;
+}
+
+.price-lightbox .price-contraindications-item-text {
+  font-size: 9.8px;
+}
+
+.price-lightbox .price-contraindications-list {
+  gap: 8px;
+  padding-left: 2%;
+  overflow-y: hidden;
+}
+
+.price-lightbox .price-banner-wrap--contraindications .price-contraindications {
+  top: 16%;
+  right: 17%;
+  bottom: 24%;
+  left: 18%;
+}
+
+.price-lightbox .price-banner-wrap--contraindications .price-contraindications-head .price-menu-title {
+  font-size: 21.1px;
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+}
+
+.price-lightbox .price-contraindications-corner {
+  font-size: 8.2px;
+  bottom: 22%;
+  right: 19%;
+  left: 19%;
+}
+
 body.is-price-lightbox-open {
   overflow: hidden;
 }
@@ -894,6 +1078,18 @@ body.is-price-lightbox-open {
   }
 }
 
+@media (min-width: 981px) {
+  .price-gallery .price-contraindications-list {
+    overflow-y: auto;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+
+  .price-gallery .price-contraindications-list::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @media (max-width: 980px) {
   .price-gallery {
     flex-direction: column;
@@ -908,6 +1104,53 @@ body.is-price-lightbox-open {
   .price-banner--flip {
     transform: none;
   }
+
+  .price-banner-wrap--contraindications .price-contraindications {
+    top: 15%;
+    right: 19%;
+    bottom: 27%;
+    left: 19%;
+  }
+
+  .price-banner-wrap--contraindications .price-contraindications-head .price-menu-title {
+    font-size: clamp(10.4px, 3.25vw, 12.8px);
+    line-height: 1.05;
+  }
+
+  .price-contraindications-head {
+    margin-bottom: 2px;
+  }
+
+  .price-contraindications-corner {
+    font-size: clamp(6.4px, 1.91vw, 7.5px);
+    bottom: 24%;
+    right: 20%;
+    left: 20%;
+  }
+
+  .price-contraindications-item-title {
+    font-size: clamp(8.7px, 2.5vw, 10.4px);
+    margin-bottom: 2px;
+    line-height: 1.25;
+  }
+
+  .price-contraindications-item-text {
+    font-size: clamp(7.5px, 2.2vw, 9.3px);
+    line-height: 1.35;
+  }
+
+  .price-contraindications-list {
+    gap: 3px;
+    padding-left: 2%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+
+  .price-contraindications-list::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {
@@ -918,6 +1161,45 @@ body.is-price-lightbox-open {
   .price-lightbox-stage {
     width: 100%;
     max-height: calc(100dvh - 20px);
+  }
+
+  .price-banner-wrap--contraindications .price-contraindications {
+    top: 14%;
+    right: 19%;
+    bottom: 28%;
+    left: 19%;
+  }
+
+  .price-banner-wrap--contraindications .price-contraindications-head .price-menu-title {
+    font-size: clamp(9.9px, 3.02vw, 11.6px);
+  }
+
+  .price-contraindications-item-title {
+    font-size: clamp(8.1px, 2.32vw, 9.9px);
+    margin-bottom: 2px;
+    line-height: 1.2;
+  }
+
+  .price-contraindications-item-text {
+    font-size: clamp(7px, 2.03vw, 8.7px);
+    line-height: 1.3;
+  }
+
+  .price-contraindications-list {
+    gap: 3px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+
+  .price-contraindications-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .price-contraindications-corner {
+    font-size: clamp(5.8px, 1.74vw, 7px);
+    bottom: 23%;
   }
 
   .price-lightbox .price-menu-title {
@@ -961,6 +1243,40 @@ body.is-price-lightbox-open {
   .price-lightbox .price-menu-item-leader {
     flex: 0 1 10px;
     min-width: 4px;
+  }
+
+  .price-lightbox .price-banner-wrap--contraindications .price-menu-title {
+    font-size: clamp(12.9px, 3.74vw, 16.4px);
+    letter-spacing: 0.05em;
+  }
+
+  .price-lightbox .price-contraindications-item-title {
+    font-size: clamp(9.4px, 2.69vw, 11.7px);
+    line-height: 1.2;
+  }
+
+  .price-lightbox .price-contraindications-item-text {
+    font-size: clamp(8.2px, 2.34vw, 10.5px);
+    line-height: 1.3;
+  }
+
+  .price-lightbox .price-contraindications-corner {
+    font-size: clamp(7px, 2.05vw, 8.8px);
+    bottom: 21%;
+    right: 20%;
+    left: 20%;
+  }
+
+  .price-lightbox .price-contraindications-list {
+    gap: 5px;
+    overflow-y: auto;
+  }
+
+  .price-lightbox .price-banner-wrap--contraindications .price-contraindications {
+    top: 14%;
+    right: 19%;
+    bottom: 27%;
+    left: 19%;
   }
 }
 
@@ -1018,6 +1334,48 @@ body.is-price-lightbox-open {
     line-height: 1.25;
   }
 
+  .price-banner-wrap--contraindications .price-contraindications {
+    top: 14%;
+    right: 20%;
+    bottom: 28%;
+    left: 20%;
+  }
+
+  .price-banner-wrap--contraindications .price-contraindications-head .price-menu-title {
+    font-size: clamp(9.3px, 3.02vw, 11.6px);
+  }
+
+  .price-contraindications-corner {
+    bottom: 23%;
+    right: 21%;
+    left: 21%;
+    font-size: clamp(5.8px, 1.68vw, 7px);
+  }
+
+  .price-contraindications-item-title {
+    font-size: clamp(7.9px, 2.44vw, 9.3px);
+    margin-bottom: 1px;
+    line-height: 1.2;
+  }
+
+  .price-contraindications-item-text {
+    font-size: clamp(7px, 1.97vw, 8.4px);
+    line-height: 1.3;
+  }
+
+  .price-contraindications-list {
+    gap: 2px;
+    padding-left: 2%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+
+  .price-contraindications-list::-webkit-scrollbar {
+    display: none;
+  }
+
   .price-lightbox .price-menu-title {
     font-size: clamp(11px, 3.3vw, 13px);
   }
@@ -1044,6 +1402,92 @@ body.is-price-lightbox-open {
     right: 21%;
     bottom: 26%;
     left: 19%;
+  }
+
+  .price-lightbox .price-banner-wrap--contraindications .price-contraindications {
+    top: 14%;
+    right: 20%;
+    bottom: 28%;
+    left: 20%;
+  }
+
+  .price-lightbox .price-banner-wrap--contraindications .price-menu-title {
+    font-size: clamp(11.7px, 3.51vw, 14px);
+    letter-spacing: 0.04em;
+  }
+
+  .price-lightbox .price-contraindications-item-title {
+    font-size: clamp(8.8px, 2.57vw, 10.5px);
+    line-height: 1.2;
+  }
+
+  .price-lightbox .price-contraindications-item-text {
+    font-size: clamp(7.6px, 2.22vw, 9.4px);
+    line-height: 1.3;
+  }
+
+  .price-lightbox .price-contraindications-list {
+    gap: 4px;
+    overflow-y: auto;
+  }
+
+  .price-lightbox .price-contraindications-corner {
+    bottom: 22%;
+    right: 21%;
+    left: 21%;
+    font-size: clamp(6.4px, 1.87vw, 7.6px);
+  }
+}
+
+@media (max-width: 350px) {
+  .price-banner-wrap--contraindications .price-contraindications {
+    top: 14%;
+    right: 20%;
+    bottom: 30%;
+    left: 20%;
+  }
+
+  .price-contraindications-head {
+    margin-bottom: 1px;
+  }
+
+  .price-banner-wrap--contraindications .price-contraindications-head .price-menu-title {
+    font-size: 7px;
+    line-height: 1;
+    letter-spacing: 0.03em;
+  }
+
+  .price-contraindications-corner {
+    bottom: 20%;
+    right: 20%;
+    left: 20%;
+    font-size: 4.9px;
+    line-height: 1.12;
+  }
+
+  .price-contraindications-list {
+    gap: 1px;
+    padding-left: 1%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    justify-content: flex-start;
+    font-size: 4.7px;
+    scrollbar-width: none;
+  }
+
+  .price-contraindications-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .price-contraindications-item-title {
+    font-size: 1.1em;
+    margin-bottom: 0;
+    line-height: 1.14;
+  }
+
+  .price-contraindications-item-text {
+    font-size: 1em;
+    line-height: 1.16;
   }
 }
 
@@ -1332,7 +1776,49 @@ body[data-page="home"] .hero {
   max-width: 520px;
   font-size: 14px;
   color: var(--header-text-muted);
-  margin-bottom: 28px;
+  margin-bottom: 14px;
+}
+
+.hero-contact,
+.page-contact {
+  max-width: 520px;
+  margin: 0 0 28px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--header-text-muted);
+}
+
+.stub-content .page-contact {
+  max-width: none;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.contacts-content .page-contact {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.hero-actions {
+  margin-top: 28px;
+}
+
+.hero-contact a,
+.page-contact a {
+  color: var(--header-text);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.hero-contact a:hover,
+.page-contact a:hover {
+  color: var(--accent-dark);
+}
+
+.hero-contact-sep,
+.page-contact-sep {
+  margin: 0 0.35em;
+  opacity: 0.65;
 }
 
 .services {
@@ -1983,6 +2469,12 @@ body[data-page="mentoring"] .container > .hero-stage:first-child .hero-title {
   background: var(--price-text-dark);
 }
 
+.application-submit:disabled {
+  opacity: 0.72;
+  cursor: wait;
+  box-shadow: none;
+}
+
 .thanks-popup {
   position: fixed;
   inset: 0;
@@ -2347,7 +2839,7 @@ body.is-thanks-popup-open {
   outline: none;
   filter: drop-shadow(0 5px 14px rgba(56, 29, 3, 0.2))
     drop-shadow(0 3px 6px rgba(56, 29, 3, 0.14));
-  background: url("../img/плашка-Прозрачная.png") center / 100% 100% no-repeat;
+  background: url("../img/plaque-transparent.webp") center / 100% 100% no-repeat;
   opacity: 0;
   transform: translateY(24px);
   transition:
@@ -2500,6 +2992,7 @@ body.is-thanks-popup-open {
   width: 100%;
   max-width: 560px;
   height: 800px;
+  overflow: hidden;
 }
 
 .location-map-canvas,
@@ -2513,18 +3006,22 @@ body.is-thanks-popup-open {
 .location-reviews-frame {
   display: block;
   width: 100%;
-  height: 800px;
-  max-width: 560px;
-  margin: 0 auto;
+  height: 100%;
+  max-width: none;
+  margin: 0;
   border: 1px solid #e6e6e6;
   border-radius: 8px;
   box-sizing: border-box;
 }
 
 .location-reviews-credit {
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  z-index: 1;
   width: 100%;
-  max-width: 560px;
-  margin-top: 8px;
+  max-width: none;
+  margin: 0;
   padding: 0 16px;
   box-sizing: border-box;
   font-size: 10px;
@@ -2535,6 +3032,7 @@ body.is-thanks-popup-open {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-height: 14px;
 }
 
 .location-foot {
@@ -2650,8 +3148,28 @@ body.is-thanks-popup-open {
   color: var(--accent-dark);
 }
 
+.footer-email,
+.contacts-email {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.footer-email:hover,
+.contacts-email:hover {
+  color: var(--accent-dark);
+}
+
 body.is-nav-open {
   overflow: hidden;
+}
+
+@media (min-width: 981px) {
+  .nav-mobile-booking {
+    display: none !important;
+  }
 }
 
 @media (max-width: 980px) {
@@ -2861,6 +3379,27 @@ body.is-nav-open {
     line-height: 1.35;
   }
 
+  .nav.is-open .nav-mobile-booking {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--header-line);
+    padding: 16px 4px 8px;
+  }
+
+  .btn--nav-booking {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 0;
+    padding: 14px 24px;
+    text-align: center;
+  }
+
+  .btn--nav-booking span {
+    text-align: center;
+  }
+
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 28px 24px;
@@ -3015,4 +3554,27 @@ body.is-nav-open {
   .header-top.is-contacts-inline .header-city-line:last-child {
     white-space: normal;
   }
+}
+
+/* Информер и модуль статистики Яндекс.Метрики — скрыты, счётчик работает */
+a[href*="metrika.yandex.ru"],
+a[href*="metrika.yandex.com"],
+img[src*="informer.yandex.ru"],
+iframe[src*="metrika.yandex"],
+[class*="ym-informer"],
+[id*="ym-informer"],
+[class*="metrika-site"],
+[id*="metrika-site"],
+[data-metrika-informer],
+[data-ym-informer] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
+  z-index: -1 !important;
 }

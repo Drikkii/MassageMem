@@ -1,18 +1,13 @@
 (function () {
   function getContacts() {
-    return window.SITE?.contacts || {
-      phone: "+79182859762",
-      telegram: "https://t.me/+79182859762",
-      max: "https://max.ru/u/f9LHodD0cOLo2NtgSTw4LF1wSlZf-BcsgWfnTfkEkZUt6sDx6EYAVwN54SU",
-      vk: "https://vk.com/ekaterina_mukhina_cosmo",
-      email: "mukhina.cosmo@mail.ru",
-    };
+    return window.SITE?.contacts || {};
   }
 
   function initContactLinks() {
     const contacts = getContacts();
 
     document.querySelectorAll(".header-phone, .footer-phone, .contacts-phone").forEach((phoneLink) => {
+      if (!contacts.phone) return;
       phoneLink.href = `tel:${contacts.phone}`;
       if (contacts.phoneDisplay) {
         phoneLink.textContent = contacts.phoneDisplay;
@@ -22,6 +17,7 @@
     document.querySelectorAll(
       ".header-contacts .social-link:not(.social-link--max), .footer-telegram, .contacts-messenger:not([data-max-link])"
     ).forEach((telegramLink) => {
+      if (!contacts.telegram) return;
       telegramLink.href = contacts.telegram;
     });
 
@@ -34,13 +30,6 @@
     document.querySelectorAll("[data-vk-link]").forEach((link) => {
       if (contacts.vk) {
         link.href = contacts.vk;
-      }
-    });
-
-    document.querySelectorAll(".footer-email, .contacts-email").forEach((emailLink) => {
-      if (contacts.email) {
-        emailLink.href = `mailto:${contacts.email}`;
-        emailLink.textContent = contacts.email;
       }
     });
   }
@@ -248,10 +237,35 @@
     const stage = document.getElementById("price-lightbox-stage");
     const closeButton = lightbox?.querySelector(".price-lightbox-close");
     const cards = document.querySelectorAll(".price-gallery .price-card");
+    const desktopQuery = window.matchMedia("(min-width: 981px)");
 
     if (!lightbox || !stage || !cards.length) return;
 
     let lastFocusedElement = null;
+
+    function isDesktop() {
+      return desktopQuery.matches;
+    }
+
+    function getCardLabel(card) {
+      return card.querySelector(".price-banner-wrap--contraindications")
+        ? "Открыть противопоказания на весь экран"
+        : "Открыть меню массажа на весь экран";
+    }
+
+    function updateCardInteractivity() {
+      cards.forEach((card) => {
+        if (isDesktop()) {
+          card.setAttribute("role", "button");
+          card.setAttribute("tabindex", "0");
+          card.setAttribute("aria-label", getCardLabel(card));
+        } else {
+          card.removeAttribute("role");
+          card.removeAttribute("tabindex");
+          card.removeAttribute("aria-label");
+        }
+      });
+    }
 
     function closeLightbox() {
       lightbox.classList.remove("is-open");
@@ -266,7 +280,10 @@
     }
 
     function openLightbox(card) {
-      lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : card;
+      if (!isDesktop()) return;
+
+      lastFocusedElement =
+        document.activeElement instanceof HTMLElement ? document.activeElement : card;
       const clone = card.cloneNode(true);
       clone.removeAttribute("role");
       clone.removeAttribute("tabindex");
@@ -286,6 +303,8 @@
       card.addEventListener("click", () => openLightbox(card));
 
       card.addEventListener("keydown", (event) => {
+        if (!isDesktop()) return;
+
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
           openLightbox(card);
@@ -304,6 +323,16 @@
         closeLightbox();
       }
     });
+
+    const handleViewportChange = () => {
+      updateCardInteractivity();
+      if (!isDesktop() && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+      }
+    };
+
+    updateCardInteractivity();
+    desktopQuery.addEventListener("change", handleViewportChange);
   }
 
   function initPhotoLightbox() {
@@ -424,8 +453,15 @@
       }
     }
 
+    const thanksMessage = thanksPopup.querySelector("#mentoring-thanks-message");
+
     function openThanksPopup() {
       clearThanksCloseTimer();
+
+      if (thanksMessage) {
+        thanksMessage.textContent = "Спасибо за заявку! Я скоро с вами свяжусь.";
+      }
+
       thanksPopup.hidden = false;
       thanksPopup.setAttribute("aria-hidden", "false");
       thanksPopup.classList.add("is-open");
@@ -489,10 +525,17 @@
     form.addEventListener("submit", (event) => {
       event.preventDefault();
 
+      if (!window.SiteForms?.sendLead) {
+        error.textContent = "Форма не загружена. Обновите страницу.";
+        error.hidden = false;
+        return;
+      }
+
       const formData = new FormData(form);
       const name = String(formData.get("name") || "").trim();
       const phone = normalizePhone(getFullPhone());
       const comment = String(formData.get("comment") || "").trim();
+      const submitButton = form.querySelector("[data-application-submit]");
 
       if (!name) {
         error.textContent = "Укажите имя.";
@@ -506,18 +549,42 @@
         return;
       }
 
-      const contacts = getContacts();
-      const subject = encodeURIComponent("Заявка на персональное обучение");
-      const body = encodeURIComponent(
-        `Имя: ${name}\nТелефон: ${phone}${comment ? `\nКомментарий: ${comment}` : ""}\n\nЗаявка с сайта: Наставничество`
-      );
+      error.hidden = true;
+      error.textContent = "";
 
-      if (contacts.email) {
-        window.location.href = `mailto:${contacts.email}?subject=${subject}&body=${body}`;
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Отправка…";
       }
 
-      closeModal();
-      openThanksPopup();
+      window.SiteForms.sendLead({
+        _subject: "Заявка на наставничество",
+        fields: {
+          "Тип заявки": "Наставничество",
+          Страница: document.title,
+          URL: window.location.href,
+          Имя: name,
+          Телефон: phone,
+          ...(comment ? { Комментарий: comment } : {}),
+        },
+      })
+        .then(() => {
+          closeModal();
+          window.setTimeout(openThanksPopup, 150);
+        })
+        .catch((submitError) => {
+          const phoneDisplay = getContacts().phoneDisplay || getContacts().phone || "";
+          error.textContent =
+            submitError?.message ||
+            `Не удалось отправить заявку. Позвоните${phoneDisplay ? `: ${phoneDisplay}` : ""}.`;
+          error.hidden = false;
+        })
+        .finally(() => {
+          if (submitButton instanceof HTMLButtonElement) {
+            submitButton.disabled = false;
+            submitButton.textContent = "Отправить заявку";
+          }
+        });
     });
   }
 

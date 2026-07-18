@@ -1,0 +1,14 @@
+{
+  "name": "massagemem",
+  "version": "1.0.0",
+  "description": "[MassageMem](https://drikkii.github.io/MassageMem/)",
+  "main": "index.js",
+  "scripts": {
+    "convert:webp": "node scripts/convert-to-webp.js",
+    "generate:sitemap": "node scripts/generate-sitemap.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
