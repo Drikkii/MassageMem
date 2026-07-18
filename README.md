@@ -70,7 +70,7 @@ MassageMem/
 │   ├── lead.php            # Обработчик заявок
 │   ├── smtp.php            # SMTP-клиент
 │   ├── config.example.php  # Пример конфигурации почты
-│   └── config.php          # Локальный конфиг (не коммитить пароли)
+│   └── config.php          # Локальный конфиг
 ├── scripts/
 │   ├── generate-sitemap.js # Генерация sitemap.xml из site-config.js
 │   └── convert-to-webp.js  # Конвертация изображений в WebP
@@ -98,95 +98,6 @@ MassageMem/
 | Политика | `/privacy.html` | Политика конфиденциальности |
 
 Маршруты, title, description и приоритеты для sitemap задаются в `js/site-config.js` → `routes`.
-
----
-
-## Конфигурация
-
-Все основные данные сайта — в **`js/site-config.js`**:
-
-- имя, описание, контакты (телефон, email, адрес);
-- ссылки на Telegram, MAX, VK, Яндекс.Карты;
-- URL онлайн-записи DIKIDI;
-- SEO-ключевые слова, верификация Яндекс/Google;
-- ID счётчиков аналитики;
-- маршруты страниц для навигации и sitemap.
-
-После изменения маршрутов перегенерируйте sitemap:
-
-```bash
-npm run generate:sitemap
-```
-
-### Почта (формы на Beget)
-
-1. Скопируйте `api/config.example.php` → `api/config.php`
-2. Укажите SMTP-пароль от почты `noreply@spaexpert-em.ru`
-3. **Не публикуйте** `config.php` с паролем в открытый репозиторий
-
----
-
-## SEO и микроразметка
-
-- **Meta-теги:** description, keywords, geo, canonical, Open Graph, Twitter Card
-- **JSON-LD (Schema.org):** LocalBusiness, Person, WebSite, WebPage, BreadcrumbList, ContactPage, AboutPage, SiteNavigationElement
-- **Файлы:** `sitemap.xml`, `robots.txt`, `site.webmanifest`
-- **Верификация:** meta-теги + `yandex_293bcd7b06fd60cb.html` для Яндекс.Вебмастера
-
-Разметка подключается через `schema-boot.js` (ранняя загрузка) и дополняется `layout.js` после инициализации страницы.
-
----
-
-## Аналитика
-
-| Сервис | Где настраивается |
-|--------|-------------------|
-| Яндекс.Метрика | `site-config.js` → `analytics.yandexMetrikaId` |
-| Google Analytics 4 | `site-config.js` → `analytics.googleAnalyticsId` |
-
-Скрипты загружаются из `js/analytics.js` только при указанных ID.
-
----
-
-## npm-скрипты
-
-```bash
-# Установка зависимостей (sharp для конвертации изображений)
-npm install
-
-# Генерация sitemap.xml из site-config.js
-npm run generate:sitemap
-
-# Конвертация изображений в WebP
-npm run convert:webp
-```
-
----
-
-## Деплой на Beget
-
-Загрузите содержимое папки `MassageMem/` в `public_html/`:
-
-- все `.html`, `css/`, `js/`, `img/`, `favicon/`, `partials/`;
-- `api/` с настроенным `config.php`;
-- `sitemap.xml`, `robots.txt`, `.htaccess`, `site.webmanifest`;
-- файлы верификации Яндекса.
-
-Проверьте:
-
-- canonical-URL: `https://spaexpert-em.ru` (без `www`);
-- редирект `www` → без `www` в `.htaccess`;
-- sitemap добавлен в [Яндекс.Вебмастер](https://webmaster.yandex.ru).
-
----
-
-## Разработка
-
-- Локально можно открыть `index.html` через любой static server или Live Server.
-- Partials (`header`, `footer`, `location`) подгружаются через `fetch` — для корректной работы нужен HTTP-сервер, не `file://`.
-- Версии CSS/JS кэшируются query-параметром `?v=` — при деплое обновляйте `assetsVersion` в `site-config.js`.
-
----
 
 ## Автор сайта
 
