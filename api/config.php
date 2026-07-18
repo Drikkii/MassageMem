@@ -16,6 +16,6 @@ return [
         'host' => 'smtp.beget.com',
         'port' => 465,
         'username' => 'noreply@spaexpert-em.ru',
-        'password' => '060794Wwwking!',
+        'password' => '!!!!!!!!!',
     ],
 ];
